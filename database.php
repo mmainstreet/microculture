@@ -3,7 +3,7 @@ class db {
 	protected $mysqli;
 	
 	function __construct() {
-		$this->mysqli = new mysqli('localhost', 'microcultureuser', '#', 'microculture');
+		$this->mysqli = new mysqli($config_dbServer, $config_dbUser, $config_dbPassword, $config_dbName);
 		if ($this->mysqli->connect_error) {
 			die('Connect Error (' . $this->mysqli->connect_errno . ') '
 					. $this->mysqli->connect_error);

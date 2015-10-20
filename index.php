@@ -1,6 +1,7 @@
 <?php
 //new Account
-include 'db.php';
+include 'config.php';
+include 'database.php';
 $db = new db();
 $db->sendQuery("CREATE TABLE IF NOT EXISTS zellen
     (ID VARCHAR(20), height VARCHAR(20),
