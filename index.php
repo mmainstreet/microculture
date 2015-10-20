@@ -1,6 +1,6 @@
 <?php
 //new Account
-include 'config.php';
+
 include 'database.php';
 $db = new db();
 $db->sendQuery("CREATE TABLE IF NOT EXISTS zellen
