@@ -1,13 +1,10 @@
 <?php
 //new Account
-
 include 'database.php';
-$db = new db();
-$db->sendQuery("CREATE TABLE IF NOT EXISTS zellen
-    (ID VARCHAR(20), height VARCHAR(20),
-    membran VARCHAR(20), attack VARCHAR(20), color VARCHAR(20))");
-$db->sendQuery("INSERT INTO zellen (ID, height, membran, attack, color)
-VALUES ('1', '3', '1', '1', 'cccccc')");
+include 'create_test_table.php';
+include 'gamefiles/fight.php';
+
+
 ?>
 
 <!DOCTYPE html>

@@ -17,9 +17,7 @@ class db {
 	}
 
 	function sendQuery($sql) {
-		if ($this->mysqli->query($sql) === FALSE) {
-			echo "Error: " . $sql . "<br>" . $this->mysqli->error;
-		}
+		return $this->mysqli->query($sql);
 	}
 
 	function __destruct() {

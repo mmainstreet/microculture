@@ -1,15 +1,20 @@
 <?php 
 
+//Constants
+define("MAXCELLCOUNT",	"5");
+define("AREAX",			"800");
+define("AREAY",			"600");
+
 class Attributes
 {
 	function Attributes($name, $health, $defense, $agility, $damage, $speed)
 	{
-		$this->name 	= $name;
-	 	$this->health 	= $health;
-	 	$this->defense = $defense;
-	 	$this->agility = $agility;
-	 	$this->damage 	= $damage;
-	 	$this->speed 	= $speed;
+		$this->name 		= $name;
+	 	$this->health 		= $health;
+	 	$this->defense 		= $defense;
+	 	$this->agility 		= $agility;
+	 	$this->damage 		= $damage;
+	 	$this->speed 		= $speed;
 	}
 	public $name;
 	public $health;
@@ -60,12 +65,10 @@ class Cell
 class Team
 {
 	//Constructor
-	function Team($cellcount, $attributes)
+	function Team($attributes)
 	{
 		$this->cells 		= array();
-		$this->m_cellcount 	= $cellcount;
-
-		for($i = 0; $i < $this->m_cellcount; $i++)
+		for($i = 0; $i < MAXCELLCOUNT; $i++)
 		{
 			$this->cells[$i] = New Cell($attributes[$i]->name,
 			 							$attributes[$i]->health, 
@@ -78,14 +81,28 @@ class Team
 
 	//Attributes
 	public 	$cells;
-	private $cellcount;
-
-	//GetMethods
-	function getCellcount(){return $this->m_cellcount;}
 };
+
+class Game
+{
+	function Game($atts1, $atts2)
+	{
+		$this->team1 = New Team($atts1);
+		$this->team2 = New Team($atts2);
+	}
+	function start()
+	{
+
+	}
+
+	protected $team1;
+	protected $team2;
+
+}
 $atts 	= array();
-$atts[0] = New Attributes("hallo",0,0,0,0,0);
-$atts[1] = New Attributes("halglo",0,0,0,0,0);
-$test 	= New Team(count($atts),$atts);
-echo $test->cells[1]->getName();
+for($i=0;$i<MAXCELLCOUNT; $i++)
+{
+	$atts[$i] = New Attributes("hallo",0,0,0,0,0);
+}
+$test 	= New Game($atts, $atts);
 ?>
