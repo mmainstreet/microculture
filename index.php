@@ -1,8 +1,6 @@
 <?php
 //new Account
-include 'database.php';
-include 'create_test_table.php';
-include 'gamefiles/fight.php';
+include './gamefiles/fight.php';
 
 
 ?>
