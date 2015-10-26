@@ -13,12 +13,15 @@ include './gamefiles/main.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
  
     <link rel="stylesheet" href="./cs/style.css"   />
+  <?php
+    $game = New Game();
+  ?>
+    <script type = "text/javascript" src = "./js/variables.js"></script>
  	<?php
- 		$game = New Game();
-    $game->load();
     $game->sendValues();
- 	?>
-    <script type="text/javascript" src="js/main.js"    ></script>
+  ?>
+  <script type="text/javascript" src="./js/main.js"    ></script>
+  <script type = "text/javascript" src ="./js/test.js"></script>
  </head>
   <body>
 	<div id="wrapper">
