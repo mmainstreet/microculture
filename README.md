@@ -1,1 +1,6 @@
 # microculture
+
+Requirements
+
+Server:
+-mysqlnd
