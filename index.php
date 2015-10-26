@@ -1,7 +1,6 @@
 <?php
 //new Account
-include './gamefiles/fight.php';
-
+include './gamefiles/main.php';
 
 ?>
 
@@ -13,9 +12,12 @@ include './gamefiles/fight.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
  
-    <link rel="stylesheet" href="style.css"   />
- 
-    <script type="text/javascript" src="js/CONSTANT.js"></script>
+    <link rel="stylesheet" href="./cs/style.css"   />
+ 	<?php
+ 		$game = New Game();
+    $game->load();
+    $game->sendValues();
+ 	?>
     <script type="text/javascript" src="js/main.js"    ></script>
  </head>
   <body>

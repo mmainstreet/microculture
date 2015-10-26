@@ -1,9 +1,0 @@
-<?php
-
-$config_dbServer	= 'localhost';
-$config_dbUser		= '#';
-$config_dbPassword	= '#';
-$config_dbName		= '#';
-
-?>
-

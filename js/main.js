@@ -1,18 +1,21 @@
 "use strict";
 
+const FPS = 50, // Frames Per Second
+      BALL_BORDER_WIDTH = 1,
+      BALL_BORDER_COLOR = "#000000";
+
 var g_context,    //the 2d context of the canvas
     g_timer,      // the "physics engine" timer
     g_balls = []; // all the balls
 
-for (var i = 0; i < BALLS_NUMBER; i++)
-{ g_balls[i] =
-    { r:  BALL_RADIUS_MIN + Math.random()*(BALL_RADIUS_MAX-BALL_RADIUS_MIN),
-      x:  BALL_RADIUS_MAX + Math.random()*(CANVAS_WIDTH-2*BALL_RADIUS_MAX),
-      y:  BALL_RADIUS_MAX + Math.random()*(CANVAS_HEIGHT-2*BALL_RADIUS_MAX),
-      vx:   (Math.random() < 0.5 ? 1 : -1)
-          * (BALL_VX_MIN + Math.random() * (BALL_VX_MAX - BALL_VX_MIN)), 
-      vy:   (Math.random() < 0.5 ? 1 : -1)
-          * (BALL_VY_MIN + Math.random() * (BALL_VY_MAX - BALL_VY_MIN)),
+for (var i = 0; i < MAXCELLCOUNT; i++)
+{ 
+  g_balls[i] =
+    { r:  BALLRADIUS,
+      x:  ,
+      y:  ,
+      vx: BALLSPEEDX, 
+      vy: BALLSPEEDY,
 
       // Moves the ball in direction (vx,vy); the step size depends on FPS.
       move:
