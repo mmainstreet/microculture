@@ -15,10 +15,12 @@ include './gamefiles/main.php';
     <link rel="stylesheet" href="./cs/style.css"   />
  	<?php
  		$game = New Game();
-    $game->load();
-    $game->sendValues();
  	?>
-    <script type="text/javascript" src="js/main.js"    ></script>
+    <script type="text/javascript" src="./js/main.js"    ></script>
+  <?php
+    $game->sendValues();
+  ?>
+  <script type = "text/javascript" src ="./js/test.js"></script>
  </head>
   <body>
 	<div id="wrapper">

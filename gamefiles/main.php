@@ -128,38 +128,50 @@ class Game extends LoadData
 		$this->load();
 
 		//Creating Teams
-		//$this->team1 = New Team($this->atts1);
+		$this->team1 = New Team($this->atts1);
 		$this->team2 = New Team($this->atts2);
-	}
 
-	function sendValues()
+		//send Constants
+		$this->sendConstants();
+	}
+	private function sendScript($script)
 	{
-		echo "<script type = 'text/javascript'>";
-		echo "const MAXCELLCOUNT = ".MAXCELLCOUNT.",";
-		echo 
+		$out = "\n<script type = 'text/javascript'>\n";
+		$out .= $script;
+		$out .= "\n</script>\n";		
+
+		echo $out;
+	}
+	private function sendConstants()
+	{
+		$script = "";
+		$script .= 
+		"
+		const  	MAXCELLCOUNT 		= ".MAXCELLCOUNT.",".
 		"	
-				BALLRADIUS 	= 15, 
-				BALLSPEEDX 	= 20,
-				BALLSPEEDY 	= 0,
-				BALLCOLOR 	= \"#55AA55\";
-			var team1 = new Array(MAXCELLCOUNT);
-			var team2 = new Array(MAXCELLCOUNT);
+				BALLRADIUS 			= 15, 
+				BALLSPEEDX 			= 20,
+				BALLSPEEDY 			= 0,
+				BALLCOLOR 			= \"#55AA55\";
 		";
-		for($i = 0; $i < MAXCELLCOUNT; $i++)
-		{
-			echo "team1[".$i."] = new Array(".ATTRIBUTECOUNT.");";
-			echo "team2[".$i."] = new Array(".ATTRIBUTECOUNT.");";
-		}
-		for($i = 0; $i < MAXCELLCOUNT; $i++)
-		{
-			echo "team1[".$i."][0] = ".$this->team1->Cells[$i]->getId().";";
-		}
-		echo "</script>";
+		$this->sendScript($script);
 	}
-	function start()
+	public function sendValues()
 	{
+		$script = "";
+		for($i = 0; $i < MAXCELLCOUNT; $i++)
+		{
+			$script .= "team1[".$i."][0] = ";
+			$script .= $this->team1->cells[$i]->getId();
+			$script .= ";";
 
+			$script .= "team1[".$i."][1] = '";
+			$script .= $this->team1->cells[$i]->getName();
+			$script .= "';\n";
+		}
+		$this->sendScript($script);
 	}
+
 	//Attributes
 	protected $team1;
 	protected $team2;
