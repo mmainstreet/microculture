@@ -3,5 +3,6 @@
 Requirements
 
 Server:
-
--mysqlnd
+<ul>
+  <li>mysqlnd</li>
+</ul>
