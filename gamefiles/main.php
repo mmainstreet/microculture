@@ -150,10 +150,13 @@ class Game extends LoadData
 		"
 		const  	MAXCELLCOUNT 		= ".MAXCELLCOUNT.",".
 		"	
-				BALLRADIUS 			= 15, 
-				BALLSPEEDX 			= 20,
-				BALLSPEEDY 			= 0,
-				BALLCOLOR 			= \"#55AA55\";
+				CELLRADIUS 			= 15, 
+				CELLSPEED 			= 20,
+				CELLCOLOR1 			= \"#55AA55\",
+				CELLCOLOR2			= \"#FFFFFF\",
+				CANVAS_WIDTH		= ".AREAX.",
+				CANVAS_HEIGHT		= ".AREAY.",
+				ATTRIBUTE_COUNT		= ".ATTRIBUTECOUNT.";
 		";
 		$this->sendScript($script);
 	}
