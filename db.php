@@ -93,15 +93,15 @@ class CreateTestTable
 			VALUES ('4', 'name', '1', '1', '1', '1', '1', '50' , '250', 'aggro')");
 
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('5', 'name', '1', '1', '1', '1', '1', '300' , '50', 'aggro')");
+			VALUES ('5', 'name', '1', '1', '1', '1', '1', '300' , '75', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('6', 'name', '1', '1', '1', '1', '1', '300' , '100', 'aggro')");
+			VALUES ('6', 'name', '1', '1', '1', '1', '1', '300' , '125', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('7', 'name', '1', '1', '1', '1', '1', '300' , '150', 'aggro')");
+			VALUES ('7', 'name', '1', '1', '1', '1', '1', '300' , '175', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('8', 'name', '1', '1', '1', '1', '1', '300' , '200', 'aggro')");
+			VALUES ('8', 'name', '1', '1', '1', '1', '1', '300' , '225', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('9', 'name', '1', '1', '1', '1', '1', '300' , '250', 'aggro')");
+			VALUES ('9', 'name', '1', '1', '1', '1', '1', '300' , '275', 'aggro')");
 		}
 	}
 }
