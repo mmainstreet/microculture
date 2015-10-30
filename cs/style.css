@@ -5,7 +5,6 @@
 }
 
 body {
-  text-align:       center;
   background-color: #ccc;
 }
 
@@ -16,7 +15,7 @@ body {
 }
 
 #d_canvas {
-  margin-top: 100px;
+  margin-top: 0px;
   border-color: #000; 
   border-width: 2px; 
   border-style: solid;

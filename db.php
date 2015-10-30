@@ -49,21 +49,26 @@ class LoadData
 	function load()
 	{
 		$output =  $this->db->sendQuery("SELECT * FROM zellen;");
-		$data =  mysqli_fetch_all($output);
+		//$data =  mysqli_fetch_all($output);
+		$data = [];
+		while ($row = $output->fetch_assoc()) {
+			$data[] = $row;
+		}
+		//var_dump($data);
 		for($i = 0; $i<MAXCELLCOUNT;$i++)
 		{
-			$this->atts1[$i] = New Attributes($data[$i][0], $data[$i][1], $data[$i][2], 
-										$data[$i][3], $data[$i][4], $data[$i][5], 
-										$data[$i][6], $data[$i][7], $data[$i][8],
-										$data[$i][9]);
+			$this->atts1[$i] = New Attributes($data[$i]['ID'], $data[$i]['name'], $data[$i]['mass'], 
+										$data[$i]['membran'], $data[$i]['attack'], $data[$i]['agility'], 
+										$data[$i]['speed'], $data[$i]['posx'], $data[$i]['posy'],
+										$data[$i]['tactic']);
 		}
 		for($i = 0; $i<MAXCELLCOUNT;$i++)
 		{
 			$j = $i+MAXCELLCOUNT;
-			$this->atts2[$i] = New Attributes($data[$j][0], $data[$j][1], $data[$j][2], 
-										$data[$j][3], $data[$j][4], $data[$j][5], 
-										$data[$j][6], $data[$j][7], $data[$j][8],
-										$data[$j][9]);
+			$this->atts2[$i] = New Attributes($data[$j]['ID'], $data[$j]['name'], $data[$j]['mass'], 
+										$data[$j]['membran'], $data[$j]['attack'], $data[$j]['agility'], 
+										$data[$j]['speed'], $data[$j]['posx'], $data[$j]['posy'],
+										$data[$j]['tactic']);
 		}
 	}
 }
@@ -93,15 +98,15 @@ class CreateTestTable
 			VALUES ('4', 'name', '1', '1', '1', '1', '1', '50' , '250', 'aggro')");
 
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('5', 'name', '1', '1', '1', '1', '1', '300' , '50', 'aggro')");
+			VALUES ('5', 'name', '1', '1', '1', '1', '1', '300' , '75', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('6', 'name', '1', '1', '1', '1', '1', '300' , '100', 'aggro')");
+			VALUES ('6', 'name', '1', '1', '1', '1', '1', '300' , '125', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('7', 'name', '1', '1', '1', '1', '1', '300' , '150', 'aggro')");
+			VALUES ('7', 'name', '1', '1', '1', '1', '1', '300' , '175', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('8', 'name', '1', '1', '1', '1', '1', '300' , '200', 'aggro')");
+			VALUES ('8', 'name', '1', '1', '1', '1', '1', '300' , '225', 'aggro')");
 			$db->sendQuery("INSERT INTO zellen (ID, name, mass, membran, attack, agility, speed, posx, posy, tactic)
-			VALUES ('9', 'name', '1', '1', '1', '1', '1', '300' , '250', 'aggro')");
+			VALUES ('9', 'name', '1', '1', '1', '1', '1', '300' , '275', 'aggro')");
 		}
 	}
 }
