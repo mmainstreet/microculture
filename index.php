@@ -28,6 +28,6 @@ include './gamefiles/main.php';
 		<canvas id="d_canvas">
 		  Ihr Browser unterstützt HTML5 leider nicht!
 		</canvas>
-	</div>
+    </div>
   </body>
 </html>
