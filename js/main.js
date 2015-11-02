@@ -6,7 +6,20 @@ var g_context,
     g_timer,     
     cells = []; 
 var pause = false;
-
+ 
+function click()
+{
+  alert();
+  if(pause)
+    {
+      pause = false;
+    }
+  else
+  {
+    pause = true;
+  }
+};
+pausebut.onclick = click;
 function startFight()
 {
   pause  = false;
@@ -48,9 +61,9 @@ function createCells()
         { 
           id:       team[i][0],
           name:     team[i][1],
-          mass:     team[i][2],
+          mass:     team[i][2]*15,
           defense:  team[i][3],
-          attack:   team[i][4],
+          damage:   team[i][4],
           agility:  team[i][5],
           speed:    team[i][6],
           posx:     team[i][7],
@@ -59,6 +72,46 @@ function createCells()
           teamid: j+1,
           dirx: 0, 
           diry: 0,
+
+          collisionDetection:
+          function()
+          {
+            var result = [];
+            for(var j = 0; j<2; j++)
+            for(var i = 0; i<5;i++)
+            {
+              var k = i*(j+1);
+              result[k] = [];
+              if(i == this.id && j == this.teamid-1)
+              {
+
+              }
+              else
+              {
+                var posx    = cells[j][i].posx;
+                var posy    = cells[j][i].posy;
+                var radius  = cells[j][i].mass;
+
+                if(Math.abs(this.posx - posx)<=radius + this.mass)
+                {
+                  result[k][0] = true;
+                }        
+                else
+                {
+                  result[k][0] = false;
+                }
+                if(Math.abs(this.posy - posy)<=radius + this.mass)
+                {
+                  result[k][1] = true;
+                }              
+                else
+                {
+                  result[k][1] = false; 
+                } 
+              }
+            }
+            return result;
+          },
 
           calcDirection:
             function()
@@ -97,14 +150,31 @@ function createCells()
           move:
             function()
             { 
-              this.posx = this.posx+this.dirx*this.speed;
-              this.posx = this.posx+this.diry*this.speed;
+              if(this.id<5)
+              {
+                text[this.id+1][0].value = this.id;
+                text[this.id+1][1].value = this.name;
+                text[this.id+1][2].value = this.mass;
+                text[this.id+1][3].value = this.defense;
+                text[this.id+1][4].value = this.damage;
+                text[this.id+1][5].value = this.agility;
+                text[this.id+1][6].value = this.speed;
+                text[this.id+1][7].value = this.posx;
+                text[this.id+1][8].value = this.posy;
+                text[this.id+1][9].value = this.tactic;
+              }
+              var collision = this.collisionDetection();
+
+            
+                  this.posx = this.posx+this.dirx*this.speed;
+                  this.posy = this.posy+this.diry*this.speed;
+
             },
 
           draw:
             function(p_context)
             { p_context.beginPath();
-              p_context.arc(this.posx, this.posy, this.mass*15, 0, 2*Math.PI);
+              p_context.arc(this.posx, this.posy, this.mass, 0, 2*Math.PI);
               p_context.lineWidth   = BALL_BORDER_WIDTH;
               p_context.strokeStyle = BALL_BORDER_COLOR;
               p_context.fillStyle   = CELLCOLOR1;
@@ -114,10 +184,10 @@ function createCells()
         };
     }
   }
-s
+
   //Free Memory of temp 
 }
-{}
+
 function o_redraw() 
 { 
   //game-calculations
@@ -144,3 +214,5 @@ function f_init()
 
   g_timer = window.setInterval(o_redraw, 1000/FPS);
 }
+
+window.onload = f_init;

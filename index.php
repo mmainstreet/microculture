@@ -11,7 +11,8 @@ include './gamefiles/main.php';
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
- 
+    <div id="output">
+    </div>
     <link rel="stylesheet" href="./cs/style.css"   />
   <?php
     $game = New Game();
@@ -20,14 +21,16 @@ include './gamefiles/main.php';
  	<?php
     $game->sendValues();
   ?>
+    <script type = "text/javascript" src ="./js/test.js"></script>
   <script type="text/javascript" src="./js/main.js"    ></script>
-  <script type = "text/javascript" src ="./js/test.js"></script>
- </head>
+  
+  </head>
   <body>
-	<div id="wrapper">
+  <div id="wrapper">
 		<canvas id="d_canvas">
 		  Ihr Browser unterstützt HTML5 leider nicht!
 		</canvas>
     </div>
+
   </body>
 </html>
